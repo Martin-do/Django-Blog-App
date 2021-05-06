@@ -26,14 +26,12 @@ def home(request):
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
     form = CommentForm(request.POST or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.instance.user = request.user
-            form.instance.post = post
-            form.save()
-            return redirect(reverse('post_detail', kwargs={
-                'id': post.id
-            }))
+    # if request.method == 'POST':
+        # if form.is_valid():
+        #     form.instance.user = request.user
+        #     form.instance.post = post
+        #     form.save()
+        #     return redirect('')
     
 
     context = {
